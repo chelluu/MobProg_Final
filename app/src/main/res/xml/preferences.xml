@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="setting_notification_preference"
+        android:title="Article Notification"
+        android:icon="@drawable/notif_icon"/>
+
+    <ListPreference
+        android:title="Font Size"
+        android:key="list_preference_font_size"
+        android:icon="@drawable/font_icon"
+        android:defaultValue="Medium"
+        android:entries="@array/list_preference_font_size"
+        android:entryValues="@array/list_preference_font_size"/>
+
+</PreferenceScreen>
