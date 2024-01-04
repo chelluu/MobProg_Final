@@ -73,12 +73,12 @@
         app:srcCompat="@drawable/group_10_1_removebg_preview" />
 
     <Button
-        android:id="@+id/RegisterBtn2"
+        android:id="@+id/LoginBtn2"
         android:layout_width="169dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="#526D82"
-        android:text="Register"
+        android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -94,7 +94,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/RegisterBtn2"
+        app:layout_constraintTop_toBottomOf="@id/LoginBtn2"
         app:layout_constraintVertical_bias="0.025" />
 
     <TextView

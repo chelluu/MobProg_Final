@@ -21,6 +21,12 @@
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.MobProg_Final" />
         <activity
+            android:name=".NewsDetail"
+            android:exported="false" />
+        <activity
+            android:name=".LandingPage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
