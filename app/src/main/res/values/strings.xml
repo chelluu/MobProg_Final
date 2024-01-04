@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MoProg_Final_1</string>
+
+    <string-array name="list_preference_font_size">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+</resources>
