@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/twitterLogo"
+            android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/profile_1"
+        android:layout_gravity="center_vertical"
+
+        android:scaleType="centerCrop"
+        android:padding="4dp"
+            app:shapeAppearanceOverlay="@style/circular"
+            app:strokeWidth="0.5dp"
+            app:strokeColor="@color/gray"
+        />
+
+
+        <!-- Search bar -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search Twitter"
+            android:padding="8dp"
+            />
+
+        <!-- Profile icon -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/beritau2_removebg_preview"
+            android:layout_gravity="center_vertical"
+
+            android:scaleType="centerCrop"
+            android:padding="4dp"
+            android:clipToOutline="true"
+            app:shapeAppearanceOverlay="@style/circular"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/gray"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/headerLayout"
+        android:background="@color/gray" />
+    <!-- Tweet list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tweetRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:padding="4dp"/>
+</RelativeLayout>
