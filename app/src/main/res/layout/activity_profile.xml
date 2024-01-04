@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Profile">
+
+    <include layout="@layout/toolbar" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:rowCount="2">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_below="@+id/black_line"
+            android:id="@+id/background_img_frame"
+            android:clickable="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/background_img"
+                android:gravity="center"
+                android:src="@drawable/background_image" />
+        </FrameLayout>
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_row="0"
+            android:id="@+id/profile_picture1"
+            android:layout_column="0"
+            android:layout_marginTop="159dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/profile_picture" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jane Doe"
+            android:id="@+id/name"
+            android:textStyle="bold"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginTop="249dp"
+            android:layout_marginLeft="19dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="\@janedoe"
+            android:id="@+id/username"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginTop="269dp"
+            android:layout_marginLeft="19dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:id="@+id/description"
+            android:text="I'm John Doe, i love pizza"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginTop="289dp"
+            android:layout_marginLeft="19dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/black_line2"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="@color/black"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:layout_marginTop="25dp" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/profile_picture2"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/profile_picture" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="John Doe"
+            android:id="@+id/name2"
+            app:layout_constraintLeft_toRightOf="@+id/profile_picture2"
+            android:textStyle="bold"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="\@johndoe"
+            android:id="@+id/username2"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="95dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="1d"
+            android:id="@+id/day"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="298dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/news_title"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing."
+            android:textStyle="bold"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:textAlignment="center"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="2dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_below="@+id/black_line"
+            android:id="@+id/news_img"
+            android:gravity="center"
+            android:src="@drawable/news_headline"
+            android:layout_marginTop="160dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/black_line3"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="@color/black"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:layout_below="@+id/news_img"
+            android:layout_marginTop="320dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:id="@+id/comment"
+            android:src="@drawable/comment_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="325dp"
+            android:layout_marginRight="230dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="200"
+            android:id="@+id/comment_text"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="314dp"
+            android:layout_marginLeft="60dp"
+            app:layout_constraintStart_toEndOf="@+id/comment"
+            app:layout_constraintTop_toTopOf="@+id/comment" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:id="@+id/like"
+            android:src="@drawable/like_btn"
+            android:layout_marginTop="325dp"
+            android:layout_marginRight="130dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="15k"
+            android:id="@+id/like_text"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="314dp"
+            android:layout_marginLeft="109dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:id="@+id/dislike"
+            android:src="@drawable/dislike_btn"
+            android:layout_marginTop="325dp"
+            android:layout_marginRight="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="100"
+            android:id="@+id/dislike_text"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="314dp"
+            android:layout_marginLeft="160dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:id="@+id/bookmark"
+            android:src="@drawable/bookmark_btn"
+            android:layout_marginTop="325dp"
+            android:layout_marginLeft="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="Bookmark"
+            android:id="@+id/bookmark_text"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="314dp"
+            android:layout_marginLeft="205dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:id="@+id/share"
+            android:src="@drawable/share_btn"
+            android:layout_marginTop="325dp"
+            android:layout_marginLeft="200dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="Share"
+            android:id="@+id/share_text"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginTop="314dp"
+            android:layout_marginLeft="275dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:id="@+id/black_line4"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="@color/black"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:layout_below="@+id/news_img"
+            android:layout_marginTop="343dp" />
+
+
+
+    </GridLayout>
+
+
+</RelativeLayout>
