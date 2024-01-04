@@ -1,4 +1,4 @@
-package com.example.moprog_final_1;
+package com.example.mobprog_final;
 
 import android.os.Bundle;
 import android.preference.ListPreference;

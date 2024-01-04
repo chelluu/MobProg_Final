@@ -28,6 +28,9 @@
             android:name=".NewsDetail"
             android:exported="false" />
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".LandingPage"
             android:exported="false" />
         <activity

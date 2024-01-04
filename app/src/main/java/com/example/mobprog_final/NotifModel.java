@@ -1,4 +1,4 @@
-package com.example.moprog_final_1;
+package com.example.mobprog_final;
 
 public class NotifModel {
     private String title, text;

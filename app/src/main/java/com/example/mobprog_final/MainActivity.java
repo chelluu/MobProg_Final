@@ -7,9 +7,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.mobprog_final.databinding.ActivityMainBinding;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,12 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
-        Intent intent = new Intent(MainActivity.this, LandingPage.class);
-        startActivity(intent);
-
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
-            if (item.getItemId() == R.id.home){
+            if (item.getItemId() == R.id.home) {
                 replaceFragment(new HomeFragment());
             } else if (item.getItemId() == R.id.search) {
                 replaceFragment(new SearchFragment());
@@ -38,14 +35,21 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+
+        // Start the LandingPage activity when needed
+        Intent intentLanding = new Intent(MainActivity.this, LandingPage.class);
+        startActivity(intentLanding);
     }
 
     private void replaceFragment(Fragment fragment){
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frame_layout, fragment);
-        fragmentTransaction.commit();
-
+        try {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.frame_layout, fragment);
+            fragmentTransaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 }

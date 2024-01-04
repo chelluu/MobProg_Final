@@ -15,16 +15,15 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/twitterLogo"
             android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/profile_1"
-        android:layout_gravity="center_vertical"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:padding="4dp"
 
-        android:scaleType="centerCrop"
-        android:padding="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_1"
             app:shapeAppearanceOverlay="@style/circular"
-            app:strokeWidth="0.5dp"
             app:strokeColor="@color/gray"
-        />
+            app:strokeWidth="0.5dp" />
 
 
         <!-- Search bar -->
@@ -34,25 +33,25 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Search Twitter"
-            android:padding="8dp"
-            />
+            android:padding="8dp" />
 
         <!-- Profile icon -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profileIcon"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/beritau2_removebg_preview"
             android:layout_gravity="center_vertical"
-
-            android:scaleType="centerCrop"
-            android:padding="4dp"
             android:clipToOutline="true"
+
+            android:padding="4dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/beritau2_removebg_preview"
             app:shapeAppearanceOverlay="@style/circular"
-            app:strokeWidth="2dp"
-            app:strokeColor="@color/gray"/>
+            app:strokeColor="@color/gray"
+            app:strokeWidth="2dp" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -65,4 +64,20 @@
         android:layout_height="match_parent"
         android:layout_below="@id/headerLayout"
         android:padding="4dp"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.mobprog_final.HomeFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="bottom"
+        />
+
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragmentContainerView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:name="com.example.mobprog_final.SearchFragment"-->
+<!--        />-->
+
 </RelativeLayout>
