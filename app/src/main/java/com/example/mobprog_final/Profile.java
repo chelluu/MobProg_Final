@@ -2,17 +2,22 @@ package com.example.mobprog_final;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.kwabenaberko.newsapilib.NewsApiClient;
@@ -39,19 +44,35 @@ public class Profile extends AppCompatActivity {
 
         FrameLayout backgroundFrame = findViewById(R.id.background_img_frame);
 
-        ImageView backgroundImg = findViewById(R.id.background_img);
+//        ImageView backgroundImg = findViewById(R.id.background_img);
         ImageView profilePicture1 = findViewById(R.id.profile_picture1);
-        ImageView profilePicture2 = findViewById(R.id.profile_picture2);
-        ImageView newsImage = findViewById(R.id.news_img);
+//        ImageView profilePicture2 = findViewById(R.id.profile_picture2);
+//        ImageView newsImage = findViewById(R.id.news_img);
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
         String userNameLogin = sharedPreferences.getString("username", ""); // "" is the default value if the username is not found
         TextView name = findViewById(R.id.name);
-        TextView username = findViewById(R.id.username);
-        TextView description = findViewById(R.id.description);
-        TextView name2 = findViewById(R.id.name2);
-        TextView username2 = findViewById(R.id.username2);
-        TextView day = findViewById(R.id.day);
+//        TextView username = findViewById(R.id.username);
+//        TextView description = findViewById(R.id.description);
+//        TextView name2 = findViewById(R.id.name2);
+//        TextView username2 = findViewById(R.id.username2);
+//        TextView day = findViewById(R.id.day);
         TextView newsTitle = findViewById(R.id.news_title);
+
+        newsTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Profile.this, Home.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView hamburgerButton = findViewById(R.id.hamburgerButton);
+        hamburgerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopupMenu(view);
+            }
+        });
 
         name.setText(userNameLogin);
 
@@ -68,43 +89,68 @@ public class Profile extends AppCompatActivity {
                 showProfilePictureDialog();
             }
         });
+
+
+    }
+
+    public void showPopupMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.inflate(R.menu.hamburger_menu);
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.home_menu) {
+                    startActivity(new Intent(Profile.this, Home.class));
+                    return true;
+                } else if (itemId == R.id.search_menu) {
+                    SearchFragment searchFragment = new SearchFragment();
+
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.search, searchFragment)
+                            .addToBackStack(null)
+                            .commit();
+                    return true;
+                } else if(itemId == R.id.notification_menu) {
+                    startActivity(new Intent(Profile.this, NotifAdapter.class));
+                } else if(itemId == R.id.settings_menu) {
+                    startActivity(new Intent(Profile.this, SettingActivity.class));
+                }
+                return false;
+            }
+        });
+
+        popupMenu.show();
     }
 
     // Method to perform the expanding animation
     private void animateBackgroundImage() {
         ImageView backgroundImg = findViewById(R.id.background_img);
 
-        // Define the scale animation
         ScaleAnimation scaleAnimation = new ScaleAnimation(
-                1f, 1.2f, // Start and end scale on x-axis
-                1f, 1.2f, // Start and end scale on y-axis
-                Animation.RELATIVE_TO_SELF, 0.5f, // Pivot point (X-axis) - center
-                Animation.RELATIVE_TO_SELF, 0.5f // Pivot point (Y-axis) - center
+                1f, 1.2f,
+                1f, 1.2f,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
         );
 
-        scaleAnimation.setDuration(500); // Duration of the animation in milliseconds
-        scaleAnimation.setFillAfter(true); // Ensure the view stays at the end scale
+        scaleAnimation.setDuration(500);
+        scaleAnimation.setFillAfter(true);
 
-        // Start the animation
         backgroundImg.startAnimation(scaleAnimation);
     }
 
     private void showProfilePictureDialog() {
-        // Inflate the dialog layout
         View dialogView = getLayoutInflater().inflate(R.layout.profile_picture_dialog, null);
 
-        // Create the dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(dialogView);
 
-        // Get the enlarged ImageView from the dialog layout
         ImageView enlargedProfilePicture = dialogView.findViewById(R.id.enlarged_profile_picture);
 
-        // Set the image for the enlarged ImageView (if needed)
-        // For example:
-        // enlargedProfilePicture.setImageResource(R.drawable.profile_picture);
-
-        // Create and show the dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }

@@ -192,7 +192,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_marginTop="314dp"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="50dp"
             app:layout_constraintStart_toEndOf="@+id/comment"
             app:layout_constraintTop_toTopOf="@+id/comment" />
 
@@ -215,7 +215,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_marginTop="314dp"
-            android:layout_marginLeft="109dp" />
+            android:layout_marginLeft="99dp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -236,7 +236,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_marginTop="314dp"
-            android:layout_marginLeft="160dp" />
+            android:layout_marginLeft="150dp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -257,7 +257,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_marginTop="314dp"
-            android:layout_marginLeft="205dp" />
+            android:layout_marginLeft="195dp" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -278,7 +278,7 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_marginTop="314dp"
-            android:layout_marginLeft="275dp" />
+            android:layout_marginLeft="265dp" />
 
         <View
             android:layout_width="match_parent"
@@ -291,8 +291,6 @@
             android:paddingLeft="8dp"
             android:layout_below="@+id/news_img"
             android:layout_marginTop="343dp" />
-
-
 
     </GridLayout>
 

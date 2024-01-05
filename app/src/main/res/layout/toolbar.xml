@@ -17,7 +17,8 @@
             android:id="@+id/hamburgerButton"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/hamburger_button" />
+            android:src="@drawable/hamburger_button"
+            android:onClick="showPopupMenu" />
 
         <!-- Add an empty view to push the profile icon to the right -->
         <View
