@@ -2,7 +2,13 @@ package com.example.mobprog_final;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +25,7 @@ public class NotificationsFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    RecyclerView notif_recycler_view;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -60,5 +66,28 @@ public class NotificationsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_notifications, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Notifications");
+            actionBar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        NotifModel[] notif_data = new NotifModel[]{
+                new NotifModel("New article from NNC Indonesia", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", R.drawable.user),
+                new NotifModel("Popular article from #Finance", "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", R.drawable.hashtag)
+        };
+
+        notif_recycler_view = view.findViewById(R.id.recycler_view_notif);
+
+        NotifAdapter notifAdapter = new NotifAdapter(notif_data);
+
+        notif_recycler_view.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        notif_recycler_view.setAdapter(notifAdapter);
     }
 }

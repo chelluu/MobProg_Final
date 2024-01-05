@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,8 @@ public class Profile extends AppCompatActivity {
         ImageView profilePicture1 = findViewById(R.id.profile_picture1);
         ImageView profilePicture2 = findViewById(R.id.profile_picture2);
         ImageView newsImage = findViewById(R.id.news_img);
+        SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+        String userNameLogin = sharedPreferences.getString("username", ""); // "" is the default value if the username is not found
         TextView name = findViewById(R.id.name);
         TextView username = findViewById(R.id.username);
         TextView description = findViewById(R.id.description);
@@ -49,6 +52,8 @@ public class Profile extends AppCompatActivity {
         TextView username2 = findViewById(R.id.username2);
         TextView day = findViewById(R.id.day);
         TextView newsTitle = findViewById(R.id.news_title);
+
+        name.setText(userNameLogin);
 
         backgroundFrame.setOnClickListener(new View.OnClickListener() {
             @Override

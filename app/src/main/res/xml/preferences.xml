@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SwitchPreference
@@ -16,4 +16,4 @@
         android:entries="@array/list_preference_font_size"
         android:entryValues="@array/list_preference_font_size"/>
 
-</PreferenceScreen>
+</LinearLayout>

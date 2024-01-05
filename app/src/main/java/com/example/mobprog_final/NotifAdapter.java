@@ -42,7 +42,7 @@ public class NotifAdapter extends RecyclerView.Adapter<NotifAdapter.View_holder>
         holder.notif_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent clickNotifIntent = new Intent(view.getContext(), MainActivity2.class);
+                Intent clickNotifIntent = new Intent(view.getContext(), MainActivity.class);
                 view.getContext().startActivity(clickNotifIntent);
             }
         });

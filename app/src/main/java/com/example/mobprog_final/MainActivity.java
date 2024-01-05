@@ -11,45 +11,20 @@ import android.util.Log;
 
 import com.example.mobprog_final.databinding.ActivityMainBinding;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
-            } else if (item.getItemId() == R.id.search) {
-                replaceFragment(new SearchFragment());
-            } else if (item.getItemId() == R.id.notifications) {
-                replaceFragment(new NotificationsFragment());
-            } else if (item.getItemId() == R.id.settings) {
-                replaceFragment(new SettingsFragment());
-            }
-            return true;
-        });
 
         // Start the LandingPage activity when needed
         Intent intentLanding = new Intent(MainActivity.this, LandingPage.class);
         startActivity(intentLanding);
     }
 
-    private void replaceFragment(Fragment fragment){
-        try {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frame_layout, fragment);
-            fragmentTransaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
 }

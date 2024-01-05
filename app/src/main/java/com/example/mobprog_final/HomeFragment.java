@@ -1,12 +1,23 @@
 package com.example.mobprog_final;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,5 +71,59 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+        //        ImageView profileView = findViewById(R.id.profileIcon);
+//        profileView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Home.this, Profile.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        RecyclerView tweetRecyclerView = findViewById(R.id.tweetRecyclerView);
+//
+//        List<Tweet> tweetList = new ArrayList<>();
+//
+//        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,R.drawable.profile_1,50,2,3));
+//        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,null,100,10,3));
+//        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,R.drawable.news_image1,0,0,0));
+//        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.news_image1,null,1,1,1));
+//
+//        TweetAdapter tweetAdapter = new TweetAdapter(this,tweetList);
+//        tweetRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        tweetRecyclerView.setAdapter(tweetAdapter);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(tweetRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+//        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.divider_line));
+//        tweetRecyclerView.addItemDecoration(dividerItemDecoration);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        ImageView profileView = view.findViewById(R.id.profileIcon);
+        profileView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Profile.class);
+                startActivity(intent);
+            }
+        });
+
+        RecyclerView tweetRecyclerView = view.findViewById(R.id.tweetRecyclerView);
+
+        List<Tweet> tweetList = new ArrayList<>();
+
+        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,R.drawable.profile_1,50,2,3));
+        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,null,100,10,3));
+        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.profile_1,R.drawable.news_image1,0,0,0));
+        tweetList.add(new Tweet("User1", "This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.This is a sample tweet.",R.drawable.news_image1,null,1,1,1));
+
+        TweetAdapter tweetAdapter = new TweetAdapter(this.getContext(),tweetList);
+        tweetRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        tweetRecyclerView.setAdapter(tweetAdapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(tweetRecyclerView.getContext(), DividerItemDecoration.VERTICAL);
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(this.getContext(), R.drawable.divider_line));
+        tweetRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 }
