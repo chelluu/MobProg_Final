@@ -32,6 +32,11 @@ import java.util.Locale;
 
 public class Profile extends AppCompatActivity {
 
+    private ImageView likeButton;
+    private TextView likeCountText;
+    private int likeCount = 0;
+    private boolean isLiked = false;
+
     RecyclerView recyclerView;
     List<Article> articleList = new ArrayList<>();
 //    NewsRecyclerAdapter adapter;
@@ -39,6 +44,7 @@ public class Profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -57,6 +63,28 @@ public class Profile extends AppCompatActivity {
 //        TextView username2 = findViewById(R.id.username2);
 //        TextView day = findViewById(R.id.day);
         TextView newsTitle = findViewById(R.id.news_title);
+
+        likeButton = findViewById(R.id.like);
+        likeCountText = findViewById(R.id.like_text);
+
+        likeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isLiked) {
+                    // buat reset count jadi 0 kalo misalnya udah mencet like
+                    likeCount = 0;
+                } else {
+                    likeCount++;
+                }
+
+                likeCountText.setText(String.valueOf(likeCount));
+
+                // buat toggle state dari likenya
+                isLiked = !isLiked;
+
+                updateLikeButtonImage();
+            }
+        });
 
         newsTitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +119,14 @@ public class Profile extends AppCompatActivity {
         });
 
 
+    }
+
+    private void updateLikeButtonImage() {
+        if(isLiked) {
+            likeButton.setImageResource(R.drawable.like_red_btn);
+        } else {
+            likeButton.setImageResource(R.drawable.like_btn);
+        }
     }
 
     public void showPopupMenu(View view) {
