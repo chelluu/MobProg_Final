@@ -140,20 +140,6 @@ public class Profile extends AppCompatActivity {
                 if (itemId == R.id.home_menu) {
                     startActivity(new Intent(Profile.this, Home.class));
                     return true;
-                } else if (itemId == R.id.search_menu) {
-                    SearchFragment searchFragment = new SearchFragment();
-
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.search, searchFragment)
-                            .addToBackStack(null)
-                            .commit();
-                    return true;
-                } else if(itemId == R.id.notification_menu) {
-                    startActivity(new Intent(Profile.this, NotifAdapter.class));
-                } else if(itemId == R.id.settings_menu) {
-                    startActivity(new Intent(Profile.this, SettingActivity.class));
                 }
                 return false;
             }
